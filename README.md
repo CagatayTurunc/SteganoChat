@@ -54,4 +54,4 @@ SteganoManager.java: LSB algoritması ile veri gömme ve çıkarma işlemlerini 
 
 CryptoHelper.java: DES şifreleme ve deşifreleme yardımcı sınıfı.
 
-RegisterForm.java & ChatScreen.java: Swing tabanlı kullanıcı arayüzleri.
+RegisterForm.java & ChatScreen.java: Swing tabanlı kullanıcı arayüzleri..
