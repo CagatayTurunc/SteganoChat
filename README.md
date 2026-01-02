@@ -15,46 +15,51 @@
 
 ## 📖 Hakkında
 
-**SteganoChat**, gizlilik ve güvenliği en üst düzeye çıkarmak için tasarlanmış yenilikçi bir sohbet uygulamasıdır. Standart mesajlaşma yöntemlerinin ötesine geçerek, mesajlarınızı steganografi tekniklerini kullanarak dijital görsellerin içerisine gizler.
+**SteganoChat**, gizlilik ve güvenliği artırmak amacıyla geliştirilmiş,  
+mesajları **dijital görseller içerisine gizleyerek** ileten istemci–sunucu tabanlı bir sohbet uygulamasıdır.
 
-> "Görünmeyeni korumak, sadece şifrelemekten daha güçlüdür."
+Uygulama, klasik metin tabanlı mesajlaşmanın aksine **steganografi + kriptografi** yaklaşımlarını birlikte kullanır.
 
-## 🛠️ Teknik Özellikler
-
-| Özellik | Açıklama | Teknoloji / Yöntem |
-| :--- | :--- | :--- |
-| **Kimlik Doğrulama** | Parolanın resim piksellerine gizlenmesi | **LSB (Least Significant Bit)** |
-| **Mesaj Şifreleme** | Uçtan sunucuya veri gizliliği | **DES (ECB Modu, PKCS5Padding)** |
-| **Sunucu Mimarisi** | Çoklu istemci yönetimi | **Multi-threading & Socket Programming** |
-| **Mesajlaşma Tipi** | Çevrimiçi ve Çevrimdışı iletim | **Store-and-Forward (Depola-İlet)** |
-| **Arayüz** | Modern ve dinamik kullanıcı deneyimi | **Java Swing (Glassmorphism UI)** |
+> “Sadece şifrelemek değil, mesajın varlığını da gizlemek.”
 
 ---
 
-## 🔄 Çalışma Mantığı (System Flow)
+## ✨ Temel Özellikler
 
-1.  **Kayıt (Register):** Kullanıcı `secretKey` değerini seçtiği bir PNG resmine gömer ve sunucuya iletir.
-2.  **Anahtar Çıkarma (Key Extraction):** Sunucu resmi işleyerek içindeki anahtarı çıkarır ve güvenli belleğe (RAM) kaydeder.
-3.  **Güvenli Sohbet (Secure Chat):**
-    * İstemci, mesajı kendi anahtarıyla **DES** kullanarak şifreler.
-    * Sunucu mesajı alır, gönderenin anahtarıyla çözer ve alıcının anahtarıyla tekrar şifreleyerek iletir.
-4.  **Çevrimdışı Destek (Offline Support):** Alıcı çevrimdışı ise mesaj sunucuda (`Map` yapısında) bekletilir, online olduğu anda teslim edilir.
+- 🔒 **LSB Steganografi:** Kullanıcı parolaları PNG görsellerin piksellerine gömülür  
+- 🔐 **DES Şifreleme:** Mesajlar sunucu üzerinden güvenli biçimde iletilir  
+- 👥 **Çoklu İstemci Desteği:** Thread tabanlı socket mimarisi  
+- 📡 **Gerçek Zamanlı Sohbet:** Anlık mesaj iletimi  
+- 📥 **Çevrimdışı Mesaj Desteği:** Kullanıcı offline iken mesajlar sunucuda tutulur  
+- 🖥️ **Swing Arayüz:** Java Swing ile geliştirilmiş masaüstü istemci  
 
 ---
 
-## 🚀 Kurulum
-> [!IMPORTANT]
-> Projenin **Linux (Kali)** ortamında çalıştırılması teknik uyumluluk açısından gereklidir.
+## 🛠️ Kullanılan Teknolojiler
 
-Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
+- **Programlama Dili:** Java  
+- **Ağ İletişimi:** Java Socket Programming  
+- **Eşzamanlılık:** Multi-threading  
+- **Steganografi:** LSB (Least Significant Bit)  
+- **Kriptografi:** DES (ECB, PKCS5Padding)  
+- **Arayüz:** Java Swing  
+- **Çalışma Ortamı:** Linux (Kali Linux önerilir)  
 
-### 1. Adım: Derleme
+---
 
-Terminali açın ve proje dizininde şu komutu çalıştırın:
+## 🔄 Sistem Çalışma Mantığı
 
-```bash
-javac *.java
+1. **Kayıt:**  
+   Kullanıcı, gizli anahtarını seçtiği bir PNG görsele gömer ve sunucuya gönderir.
 
+2. **Anahtar Çıkarma:**  
+   Sunucu, görselden anahtarı çıkarır ve RAM üzerinde güvenli şekilde saklar.
 
+3. **Mesajlaşma:**  
+   - Gönderen mesajı kendi anahtarıyla şifreler  
+   - Sunucu mesajı çözer ve alıcının anahtarıyla tekrar şifreleyerek iletir  
 
+4. **Çevrimdışı Destek:**  
+   Alıcı offline ise mesajlar `Map` yapısında saklanır, online olduğunda teslim edilir.
 
+---
