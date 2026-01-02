@@ -53,34 +53,40 @@ Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
 Terminali açın ve proje dizininde şu komutu çalıştırın:
 ```bash
 javac *.java
-2. Adım: Sunucuyu Ayağa KaldırmaBashjava MainServer
-3. Adım: İstemciyi BaşlatmaBashjava RegisterForm
-📂 Kayıtlar ve Log SistemiSistem, analiz ve savunma süreçleri için detaylı log dosyaları üretir:📄 server_logs.txt: Mesajların şifrelenme/çözülme ve iletim süreçlerini anlık kaydeder.📄 stego_debug.txt: Resim piksellerindeki bit değişimlerini detaylıca raporlar.📄 registered_users.txt: Kayıtlı kullanıcıların kalıcı listesini tutar.✅ Ödev Uyumluluk Tablosu#İstenen KoşulDurumTeknik Karşılık1Birden fazla Client desteği✅Thread tabanlı ClientHandler yapısı2LSB ile parola saklama✅SteganoManager.encode algoritması3Sunucu: Görselden parola çıkarma✅SteganoManager.decode fonksiyonu4Aktif client listesini gösterme✅Dinamik USER_LIST broadcast mesajları5Çevrimdışı mesaj iletilebilmesi✅offlineMessages Map veri yapısı6DES kullanarak şifreleme✅CryptoHelper sınıfı ve 8-byte key sabitleme7Linux üzerinde çalışma şartı✅Kali Linux uyumlu terminal yönetimi
+2. Adım: Sunucuyu Ayağa Kaldırma
+java MainServer
+3. Adım: İstemciyi Başlatma
+java RegisterForm
+Kayıtlar ve Log Sistemi
 
-## 📸 Ekran Görüntüleri
+Sistem, analiz ve savunma süreçleri için detaylı log dosyaları üretir:
 
-| Giriş Ekranı | Sohbet Arayüzü | Görüntü İşleme |
-| :---: | :---: | :---: |
-| <img src="https://via.placeholder.com/200" width="200"> | <img src="https://via.placeholder.com/200" width="200"> | <img src="https://via.placeholder.com/200" width="200"> |
+server_logs.txt: Mesajların şifrelenme/çözülme ve iletim süreçlerini anlık kaydeder.
 
-*(Lütfen gerçek ekran görüntülerini buraya ekle)*
+stego_debug.txt: Resim piksellerindeki bit değişimlerini detaylıca raporlar.
 
-## 🤝 Katkıda Bulunma
+registered_users.txt: Kayıtlı kullanıcıların kalıcı listesini tutar.
+✅ Ödev Uyumluluk Tablosu
+|  # | İstenen Koşul                    | Durum | Teknik Karşılık                               |
+| -: | -------------------------------- | :---: | --------------------------------------------- |
+|  1 | Birden fazla Client desteği      |   ✅   | Thread tabanlı `ClientHandler` yapısı         |
+|  2 | LSB ile parola saklama           |   ✅   | `SteganoManager.encode` algoritması           |
+|  3 | Sunucu: Görselden parola çıkarma |   ✅   | `SteganoManager.decode` fonksiyonu            |
+|  4 | Aktif client listesini gösterme  |   ✅   | Dinamik `USER_LIST` broadcast mesajları       |
+|  5 | Çevrimdışı mesaj iletilebilmesi  |   ✅   | `offlineMessages` `Map` veri yapısı           |
+|  6 | DES kullanarak şifreleme         |   ✅   | `CryptoHelper` sınıfı ve 8-byte key sabitleme |
+|  7 | Linux üzerinde çalışma şartı     |   ✅   | Kali Linux uyumlu terminal yönetimi           |
+🤝 Katkıda Bulunma
+Projeyi çatallayın (Fork).
 
-Katkı sağlamak isterseniz lütfen şu adımları izleyin:
-1. Projeyi çatallayın (Fork).
-2. Yeni bir özellik dalı (Branch) oluşturun (`git checkout -b feature/YeniOzellik`).
-3. Değişikliklerinizi kaydedin (`git commit -m 'Yeni özellik eklendi'`).
-4. Dalınızı gönderin (`git push origin feature/YeniOzellik`).
-5. Bir Çekme İsteği (Pull Request) açın.
+Yeni bir dal oluşturun (git checkout -b feature/YeniOzellik).
 
-## 📄 Lisans
+Değişikliklerinizi kaydedin (git commit -m 'Yeni özellik').
 
-Bu proje **MIT Lisansı** altında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına göz atın.
-
----
-
+Bir Çekme İsteği (Pull Request) açın.
 <p align="center"> <b>Geliştiren: <a href="https://www.google.com/search?q=https://github.com/CagatayTurunc">Çağatay Turunç</a></b>
 
 
 <i>Bilgisayar Mühendisliği Öğrencisi</i> </p>
+
+
