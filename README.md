@@ -49,35 +49,12 @@
 Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
 
 ### 1. Adım: Derleme
+
 Terminali açın ve proje dizininde şu komutu çalıştırın:
 
 ```bash
 javac *.java
-2. Adım: Sunucuyu Ayağa Kaldırma
-bash
-Kodu kopyala
-java MainServer
-3. Adım: İstemciyi Başlatma
-bash
-Kodu kopyala
-java RegisterForm
-🧾 Kayıtlar ve Log Sistemi
-Sistem, analiz ve savunma süreçleri için detaylı log dosyaları üretir:
 
-server_logs.txt: Mesajların şifrelenme/çözülme ve iletim süreçlerini anlık kaydeder.
 
-stego_debug.txt: Resim piksellerindeki bit değişimlerini detaylıca raporlar.
-
-registered_users.txt: Kayıtlı kullanıcıların kalıcı listesini tutar.
-
-✅ Ödev Uyumluluk Tablosu
-#	İstenen Koşul	Durum	Teknik Karşılık
-1	Birden fazla Client desteği	✅	Thread tabanlı ClientHandler yapısı
-2	LSB ile parola saklama	✅	SteganoManager.encode algoritması
-3	Sunucu: Görselden parola çıkarma	✅	SteganoManager.decode fonksiyonu
-4	Aktif client listesini gösterme	✅	Dinamik USER_LIST broadcast mesajları
-5	Çevrimdışı mesaj iletilebilmesi	✅	offlineMessages Map veri yapısı
-6	DES kullanarak şifreleme	✅	CryptoHelper sınıfı
-7	Linux üzerinde çalışma şartı	✅	Kali Linux uyumlu terminal
 
 
