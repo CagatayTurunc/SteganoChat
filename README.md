@@ -19,46 +19,43 @@
 
 > "Görünmeyeni korumak, sadece şifrelemekten daha güçlüdür."
 
-## ✨ Temel Özellikler
+## 🛠️ Teknik Özellikler
 
-* **🔒 Steganografik Gizleme:** Mesajlarınızı LSB (Least Significant Bit) yöntemiyle görsellerin piksellerine fark edilmeyecek şekilde gömer.
-* **📡 Gerçek Zamanlı Sohbet:** WebSockets altyapısı sayesinde anlık mesajlaşma deneyimi.
-* **🖼️ Kayıpsız Veri İletimi:** PNG ve BMP gibi formatlar üzerinden verinin bozulmadan iletilmesi.
-* **🔐 Ekstra Şifreleme:** Mesajlar görsele gömülmeden önce AES-256 gibi güçlü algoritmalarla şifrelenebilir.
-* **🎨 Modern Arayüz:** Kullanıcı dostu, şık ve minimal UI tasarımı.
+| Özellik | Açıklama | Teknoloji / Yöntem |
+| :--- | :--- | :--- |
+| **Kimlik Doğrulama** | Parolanın resim piksellerine gizlenmesi | **LSB (Least Significant Bit)** |
+| **Mesaj Şifreleme** | Uçtan sunucuya veri gizliliği | **DES (ECB Modu, PKCS5Padding)** |
+| **Sunucu Mimarisi** | Çoklu istemci yönetimi | **Multi-threading & Socket Programming** |
+| **Mesajlaşma Tipi** | Çevrimiçi ve Çevrimdışı iletim | **Store-and-Forward (Depola-İlet)** |
+| **Arayüz** | Modern ve dinamik kullanıcı deneyimi | **Java Swing (Glassmorphism UI)** |
 
-## 🛠️ Teknolojiler
+---
 
-Proje geliştirilirken aşağıdaki teknolojiler ve kütüphaneler kullanılmıştır:
+## 🔄 Çalışma Mantığı (System Flow)
 
-* **Dil:** [Python / JavaScript / Java - Burayı Projene Göre Düzenle]
-* **Steganografi:** [OpenCV / Pillow / Stegano]
-* **İletişim:** [Socket.io / WebSockets / Firebase]
-* **Arayüz:** [React / PyQt / Tkinter / CSS]
+1.  **Kayıt (Register):** Kullanıcı `secretKey` değerini seçtiği bir PNG resmine gömer ve sunucuya iletir.
+2.  **Anahtar Çıkarma (Key Extraction):** Sunucu resmi işleyerek içindeki anahtarı çıkarır ve güvenli belleğe (RAM) kaydeder.
+3.  **Güvenli Sohbet (Secure Chat):**
+    * İstemci, mesajı kendi anahtarıyla **DES** kullanarak şifreler.
+    * Sunucu mesajı alır, gönderenin anahtarıyla çözer ve alıcının anahtarıyla tekrar şifreleyerek iletir.
+4.  **Çevrimdışı Destek (Offline Support):** Alıcı çevrimdışı ise mesaj sunucuda (`Map` yapısında) bekletilir, online olduğu anda teslim edilir.
+
+---
 
 ## 🚀 Kurulum
+> [!IMPORTANT]
+> Projenin **Linux (Kali)** ortamında çalıştırılması teknik uyumluluk açısından gereklidir. 
 
 Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
 
-1.  **Depoyu Klonlayın:**
-    ```bash
-    git clone [https://github.com/CagatayTurunc/SteganoChat.git](https://github.com/CagatayTurunc/SteganoChat.git)
-    cd SteganoChat
-    ```
 
-2.  **Bağımlılıkları Yükleyin:**
-    ```bash
-    # Örnek (Python ise):
-    pip install -r requirements.txt
-    
-    # Örnek (Node.js ise):
-    npm install
-    ```
-
-3.  **Uygulamayı Çalıştırın:**
-    ```bash
-    python main.py  # veya npm start
-    ```
+### 1. Adım: Derleme
+Terminali açın ve proje dizininde şu komutu çalıştırın:
+```bash
+javac *.java
+2. Adım: Sunucuyu Ayağa KaldırmaBashjava MainServer
+3. Adım: İstemciyi BaşlatmaBashjava RegisterForm
+📂 Kayıtlar ve Log SistemiSistem, analiz ve savunma süreçleri için detaylı log dosyaları üretir:📄 server_logs.txt: Mesajların şifrelenme/çözülme ve iletim süreçlerini anlık kaydeder.📄 stego_debug.txt: Resim piksellerindeki bit değişimlerini detaylıca raporlar.📄 registered_users.txt: Kayıtlı kullanıcıların kalıcı listesini tutar.✅ Ödev Uyumluluk Tablosu#İstenen KoşulDurumTeknik Karşılık1Birden fazla Client desteği✅Thread tabanlı ClientHandler yapısı2LSB ile parola saklama✅SteganoManager.encode algoritması3Sunucu: Görselden parola çıkarma✅SteganoManager.decode fonksiyonu4Aktif client listesini gösterme✅Dinamik USER_LIST broadcast mesajları5Çevrimdışı mesaj iletilebilmesi✅offlineMessages Map veri yapısı6DES kullanarak şifreleme✅CryptoHelper sınıfı ve 8-byte key sabitleme7Linux üzerinde çalışma şartı✅Kali Linux uyumlu terminal yönetimi
 
 ## 📸 Ekran Görüntüleri
 
@@ -83,6 +80,7 @@ Bu proje **MIT Lisansı** altında lisanslanmıştır. Daha fazla bilgi için `L
 
 ---
 
-<p align="center">
-  <b>Geliştiren: <a href="https://github.com/CagatayTurunc">Çağatay Turunç</a></b>
-</p>
+<p align="center"> <b>Geliştiren: <a href="https://www.google.com/search?q=https://github.com/CagatayTurunc">Çağatay Turunç</a></b>
+
+
+<i>Bilgisayar Mühendisliği Öğrencisi</i> </p>
