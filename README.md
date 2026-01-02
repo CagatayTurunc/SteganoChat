@@ -44,21 +44,24 @@
 
 ## 🚀 Kurulum
 > [!IMPORTANT]
-> Projenin **Linux (Kali)** ortamında çalıştırılması teknik uyumluluk açısından gereklidir. 
+> Projenin **Linux (Kali)** ortamında çalıştırılması teknik uyumluluk açısından gereklidir.
 
 Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
 
-
 ### 1. Adım: Derleme
 Terminali açın ve proje dizininde şu komutu çalıştırın:
+
 ```bash
 javac *.java
 2. Adım: Sunucuyu Ayağa Kaldırma
+bash
+Kodu kopyala
 java MainServer
 3. Adım: İstemciyi Başlatma
+bash
+Kodu kopyala
 java RegisterForm
-Kayıtlar ve Log Sistemi
-
+🧾 Kayıtlar ve Log Sistemi
 Sistem, analiz ve savunma süreçleri için detaylı log dosyaları üretir:
 
 server_logs.txt: Mesajların şifrelenme/çözülme ve iletim süreçlerini anlık kaydeder.
@@ -66,27 +69,15 @@ server_logs.txt: Mesajların şifrelenme/çözülme ve iletim süreçlerini anl�
 stego_debug.txt: Resim piksellerindeki bit değişimlerini detaylıca raporlar.
 
 registered_users.txt: Kayıtlı kullanıcıların kalıcı listesini tutar.
+
 ✅ Ödev Uyumluluk Tablosu
-|  # | İstenen Koşul                    | Durum | Teknik Karşılık                               |
-| -: | -------------------------------- | :---: | --------------------------------------------- |
-|  1 | Birden fazla Client desteği      |   ✅   | Thread tabanlı `ClientHandler` yapısı         |
-|  2 | LSB ile parola saklama           |   ✅   | `SteganoManager.encode` algoritması           |
-|  3 | Sunucu: Görselden parola çıkarma |   ✅   | `SteganoManager.decode` fonksiyonu            |
-|  4 | Aktif client listesini gösterme  |   ✅   | Dinamik `USER_LIST` broadcast mesajları       |
-|  5 | Çevrimdışı mesaj iletilebilmesi  |   ✅   | `offlineMessages` `Map` veri yapısı           |
-|  6 | DES kullanarak şifreleme         |   ✅   | `CryptoHelper` sınıfı ve 8-byte key sabitleme |
-|  7 | Linux üzerinde çalışma şartı     |   ✅   | Kali Linux uyumlu terminal yönetimi           |
-🤝 Katkıda Bulunma
-Projeyi çatallayın (Fork).
-
-Yeni bir dal oluşturun (git checkout -b feature/YeniOzellik).
-
-Değişikliklerinizi kaydedin (git commit -m 'Yeni özellik').
-
-Bir Çekme İsteği (Pull Request) açın.
-<p align="center"> <b>Geliştiren: <a href="https://www.google.com/search?q=https://github.com/CagatayTurunc">Çağatay Turunç</a></b>
-
-
-<i>Bilgisayar Mühendisliği Öğrencisi</i> </p>
+#	İstenen Koşul	Durum	Teknik Karşılık
+1	Birden fazla Client desteği	✅	Thread tabanlı ClientHandler yapısı
+2	LSB ile parola saklama	✅	SteganoManager.encode algoritması
+3	Sunucu: Görselden parola çıkarma	✅	SteganoManager.decode fonksiyonu
+4	Aktif client listesini gösterme	✅	Dinamik USER_LIST broadcast mesajları
+5	Çevrimdışı mesaj iletilebilmesi	✅	offlineMessages Map veri yapısı
+6	DES kullanarak şifreleme	✅	CryptoHelper sınıfı
+7	Linux üzerinde çalışma şartı	✅	Kali Linux uyumlu terminal
 
 
